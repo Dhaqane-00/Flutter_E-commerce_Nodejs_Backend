@@ -1,80 +1,148 @@
-Flutter backend
+# Flutter E-commerce Backend
+
+## 🚀 Overview
+
+A robust and scalable backend service built for a Flutter e-commerce application. This project implements a RESTful API using Node.js, Express, and MongoDB, featuring comprehensive user authentication, product management, order processing, and payment integration.
+
+## ✨ Key Features
+
+- 🔐 Secure Authentication & Authorization
+- 📦 Product & Category Management
+- 🛒 Shopping Cart Operations
+- 💳 Payment Integration (EVC & Cash)
+- 📱 OTP Verification System
+- 📄 Swagger API Documentation
+- 🖼️ File Upload Support
+- 🔄 Order Management System
+
+## 🛠️ Tech Stack
+
+- **Runtime**: Node.js
+- **Framework**: Express.js
+- **Database**: MongoDB
+- **Authentication**: JWT & bcrypt
+- **Documentation**: Swagger/OpenAPI
+- **File Upload**: Multer
+- **Email Service**: Nodemailer
+- **Payment Processing**: WaafiPay Integration
+
+## 🚦 Getting Started
+
+### Prerequisites
+
+- Node.js (v14 or higher)
+- MongoDB
+- npm or yarn
+
+### Installation
+
+1. Clone the repository:
+```bash
+git clone https://github.com/Dhaqane-00/FlutterBackend.git
+```
+```bash
+cd FlutterBackend
+```
+npm install
+
+3. Configure environment variables:
+Create a `.env` file in the root directory with the following variables:
+
+```env
+PORT=5000
+MONGODB_URI=your_mongodb_uri
+JWT_SECRET=your_jwt_secret
+IMAGE_URL=your_image_base_url
+MERCHANT_URL=your_waafi_merchant_url
+```
+
+4. Start the development server:
+```bash
+npm start
+```
+
+## 📚 API Documentation
+
+The API documentation is available through Swagger UI at:
+
+http://localhost:5000/api-docs
 
 
-Description
+### Main API Endpoints
 
-This project serves as the backend for a Flutter application. It is built using Node.js, Express, and MongoDB, with additional libraries for security, API documentation, and development tools.
+- **Authentication**
+  - POST `/api/user/register` - User registration
+  - POST `/api/user/login` - User login
+  - POST `/api/user/OTPVerification` - Verify OTP
 
-Table of Contents
+- **Products**
+  - GET `/api/product/getAllProducts` - Get all products
+  - POST `/api/product/createProduct` - Create new product (Admin)
+  - PUT `/api/product/updateProduct/:id` - Update product
+  - DELETE `/api/product/deleteProduct/:id` - Delete product
 
-    Installation   
-    Usage
-    Dependencies
-    Dev Dependencies
-    Author
-    License
+- **Orders**
+  - POST `/api/order/createOrder` - Create new order
+  - GET `/api/order/getOrders` - Get all orders
+  - GET `/api/order/getUserOrder/:id` - Get user specific orders
 
-Installation
+## 🔒 Security Features
 
-To get started with this project, follow these steps:
+- Password Hashing (bcrypt)
+- JWT Authentication
+- MongoDB Sanitization
+- Request Rate Limiting
+- Role-based Access Control
 
-    Clone the repository: git clone https://github.com/Dhaqane-00/FlutterBackend.git
+## 🏗️ Project Structure
 
-    
+flutter_backend/
+├── src/
+│ ├── Controllers/ # Business logic
+│ ├── Models/ # Database schemas
+│ ├── Routers/ # Route definitions
+│ ├── utils/ # Helper functions
+│ └── Main.js # App configuration
+├── public/ # Static files
+└── server.js # Entry point
 
-    Navigate to the project directory:
 
-    cd flutter_backend Install the dependencies:
+## 🔧 Development
 
-    npm install
+### Running Tests
 
-    Create a .env file in the root of the project and add your environment variables:
+```bash
+npm test
+```
 
-plaintext
 
-    PORT=5000
-    MONGODB_URI=your_mongodb_uri
-    JWT_SECRET=your_jwt_secret
+### Code Style
+The project follows standard JavaScript conventions and uses ESLint for code quality.
 
-Usage
+## 🤝 Contributing
 
-To start the server in development mode, use the following command:
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/AmazingFeature`)
+3. Commit your changes (`git commit -m 'Add some AmazingFeature'`)
+4. Push to the branch (`git push origin feature/AmazingFeature`)
+5. Open a Pull Request
 
-     npm start
+## 📄 License
 
-This will use nodemon to watch for file changes and automatically restart the server.
-Dependencies
+This project is licensed under the ISC License - see the [LICENSE](LICENSE) file for details.
 
-    bcryptjs: ^2.4.3
-    cookie-parser: ^1.4.6
-    cors: ^2.8.5
-    dotenv: ^16.4.5
-    express: ^4.19.2
-    jsonwebtoken: ^9.0.2
-    mongoose: ^8.3.4
-    morgan: ^1.10.0
-    swagger-jsdoc: ^6.2.8
-    swagger-ui-express: ^5.0.0
+## 👥 Authors
 
-Dev Dependencies
+- **Dhaqane** - *Initial work* - [Dhaqane-00](https://github.com/Dhaqane-00)
 
-    nodemon: ^3.1.0
+## 🙏 Acknowledgments
 
-Author
+- Express.js community
+- MongoDB team
+- All contributors who helped shape this project
 
-Dhaqane
-License
+## 📞 Support
 
-This project is licensed under the ISC License.
-API Documentation
+For support, email [contact information] or create an issue in the repository.
 
-The API documentation is generated using Swagger. Once the server is running, you can access the documentation at:  
-
-    http://localhost:5000/api-docs
-
-Contributing
-
-If you would like to contribute to this project, please fork the repository and submit a pull request.
-Contact
-
-For any inquiries or questions, please contact Dhaqane.
+This README provides a comprehensive overview of the project, its features, setup instructions, and contribution guidelines. It's structured to help both new developers get started quickly and experienced developers understand the project's architecture and capabilities.
